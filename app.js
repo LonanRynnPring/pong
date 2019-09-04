@@ -171,9 +171,9 @@ class Pong
     start()
     {
         if (this.ball.vel.x === 0 && this.ball.vel.y === 0){
-            this.ball.vel.x = 500 * (Math.random() > .5 ? 1 : -1);
-            this.ball.vel.y = 500 * (Math.random() * 2 - 1);
-            this.ball.vel.len = 200;
+            this.ball.vel.x = 300 * (Math.random() > .5 ? 1 : -1);
+            this.ball.vel.y = 300 * (Math.random() * 2 - 1);
+            this.ball.vel.len = 300;
         }
     }
     update(dt) 
@@ -193,11 +193,11 @@ class Pong
         }
 
         if (this.players[1].pos.y > this.ball.pos.y){
-            this.players[1].pos.y -= (this.players[1].pos.y-this.ball.pos.y)/20
+            this.players[1].pos.y -= (this.players[1].pos.y-this.ball.pos.y)/10
         }
 
         if (this.players[1].pos.y < this.ball.pos.y){
-            this.players[1].pos.y += (this.ball.pos.y-this.players[1].pos.y)/20
+            this.players[1].pos.y += (this.ball.pos.y-this.players[1].pos.y)/10
         }
 
         this.players.forEach(player => this.collide(player, this.ball));
