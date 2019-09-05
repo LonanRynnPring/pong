@@ -129,12 +129,14 @@ class Pong
             const len = ball.vel.len;
             ball.vel.x = -ball.vel.x;
             // ball.vel.y += 300 * (Math.random() - .5);
-            if (ball.vel.x > 0){
-                ball.vel.y += (player.pos.y-ball.pos.y)
-            }
-            else if (ball.vel.x < 0){
-                ball.vel.y += (player.pos.y-ball.pos.y)
-            }
+            ball.vel.y += (ball.pos.y-player.pos.y);
+
+            // if (ball.vel.x > 0){
+            //     ball.vel.y += (player.pos.y-ball.pos.y)
+            // }
+            // else if (ball.vel.x < 0){
+            //     ball.vel.y += (player.pos.y-ball.pos.y)
+            // }
             ball.vel.len = len * 1.05;
         }
     }
@@ -199,7 +201,7 @@ class Pong
         }
 
         if (this.players[1].pos.y > this.ball.pos.y){
-            this.players[1].pos.y -= (this.players[1].pos.y-this.ball.pos.y)/10
+            this.players[1].pos.y -= (this.players[1].pos.y-this.ball.pos.y)/((Math.random()*(20 - 10 + 1)) + 10);
         }
 
         if (this.players[1].pos.y < this.ball.pos.y){
